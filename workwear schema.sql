@@ -106,7 +106,10 @@ COMMENT ON COLUMN Workwear_Type.workwear_type_id IS 'Идентификатор 
 COMMENT ON COLUMN Workwear_Type.workwear_type IS 'Тип спецодежды';
 
 
-
+ALTER TABLE Workwear 
+	ADD CONSTRAINT Workwear_fk_workwear_type FOREIGN KEY (workwear_type_id) 
+	REFERENCES Workwear_Type(workwear_type_id)
+	ON UPDATE CASCADE ON DELETE RESTRICT;
 
 ALTER TABLE Workers 
 	ADD CONSTRAINT Workers_fk_positions FOREIGN KEY (worker_position_id) 
